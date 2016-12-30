@@ -3,6 +3,10 @@
 <head>
 <style>
 
+body{
+    font-family: helvetica;
+}
+
 #main-area{
     text-align: center;
 }
@@ -13,17 +17,25 @@
     text-align: center;
 }
 
-#input-area textarea{
-    display: block;
-    margin: 20px;
+div.row{
+    width: 100%;
+    margin-top: 20px;
 }
 
 #input-area input{
-    display: block;
+    display: inline-block;
+}
+
+#input-area textarea{
+    width: 300px;
+    height: 100px;
+}
+
+input#submit-button{
+    
 }
 
 #output-area{
-	font-family: helvetica;
 	font-size: 14px;
 	text-align: center;
 }
@@ -45,11 +57,25 @@
 <body>
 
 <div id="main-area">
+    <h1>HEX to EBCDIC converter</h1>
 	<div id="input-area">
-		<textarea id="hex-input"></textarea>
-        <label>number of bytes across</label>
-        <input type="text" id="num-bytes" value="80"/>
-		<input type="button" id="submit-button" value="Submit"/>
+
+        <div class="row">
+            <label for="hex-input">HEX input: </label>
+        </div>
+        <div class="row">
+            <textarea id="hex-input"></textarea>
+        </div>
+
+        <div class="row">
+            <label for="num-bytes">Bytes per row: </label>
+            <input type="text" id="num-bytes" name="num-bytes" value="80"/>
+        </div>
+        
+        <div class="row">
+            <input type="button" id="submit-button" value="Submit"/>
+        </div>
+
 	</div>
 	<div id="output-area">
 	<pre id="out-string"></pre>
@@ -71,12 +97,15 @@ function convertInput(e){
 	var hexInput = document.getElementById("hex-input").value;
 	var outString = document.getElementById("out-string");
     var numBytes = document.getElementById("num-bytes").value;
+
     numBytes = parseInt(numBytes);
-	hexInput = hexInput.replace(/ /g,''); // delete whitespace
+	
+    hexInput = hexInput.replace(/ /g,''); // delete whitespace
 	hexInput = hexInput.replace(/\r?\n|\r/g,''); // delete eol
-	var ebcdicOut = reallyGrossFunctionFromOnline(hexInput, numBytes);
-	outString.innerHTML = ebcdicOut;
-	console.log(ebcdicOut);
+	
+    var ebcdicOut = reallyGrossFunctionFromOnline(hexInput, numBytes);
+	
+    outString.innerHTML = ebcdicOut;
 
 }
 

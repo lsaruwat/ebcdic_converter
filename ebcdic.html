@@ -18,6 +18,10 @@
     margin: 20px;
 }
 
+#input-area input{
+    display: block;
+}
+
 #output-area{
 	font-family: helvetica;
 	font-size: 14px;
@@ -43,6 +47,8 @@
 <div id="main-area">
 	<div id="input-area">
 		<textarea id="hex-input"></textarea>
+        <label>number of bytes across</label>
+        <input type="text" id="num-bytes" value="80"/>
 		<input type="button" id="submit-button" value="Submit"/>
 	</div>
 	<div id="output-area">
@@ -64,9 +70,11 @@ function main(){
 function convertInput(e){
 	var hexInput = document.getElementById("hex-input").value;
 	var outString = document.getElementById("out-string");
+    var numBytes = document.getElementById("num-bytes").value;
+    numBytes = parseInt(numBytes);
 	hexInput = hexInput.replace(/ /g,''); // delete whitespace
 	hexInput = hexInput.replace(/\r?\n|\r/g,''); // delete eol
-	var ebcdicOut = reallyGrossFunctionFromOnline(hexInput);
+	var ebcdicOut = reallyGrossFunctionFromOnline(hexInput, numBytes);
 	outString.innerHTML = ebcdicOut;
 	console.log(ebcdicOut);
 
@@ -75,7 +83,7 @@ function convertInput(e){
 
 
 
-function reallyGrossFunctionFromOnline(dform){
+function reallyGrossFunctionFromOnline(dform, numBytes){
   var x = 0;
   var raw = dform;
   output = "<p>";
@@ -347,7 +355,7 @@ function reallyGrossFunctionFromOnline(dform){
 		}
 	}
 	output+=ebcdic;
-	if(x%100 == 0) output+= "</p><p>";
+	if(x%numBytes == 0) output+= "</p><p>";
 }
 return output;
 }

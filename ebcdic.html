@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<link rel="stylesheet" type="text/css" href="simple_flat_contact.css" />
 <style>
 
 body{
@@ -57,9 +58,10 @@ input#submit-button{
 <body>
 
 <div id="main-area">
+
     <h1>HEX to EBCDIC converter</h1>
 	<div id="input-area">
-
+    <form>
         <div class="row">
             <label for="hex-input">HEX input: </label>
         </div>
@@ -75,6 +77,7 @@ input#submit-button{
         <div class="row">
             <input type="button" id="submit-button" value="Submit"/>
         </div>
+        </form>
 
 	</div>
 	<div id="output-area">
@@ -124,72 +127,72 @@ function reallyGrossFunctionFromOnline(dform, numBytes){
 		var hexbyte = hex1 + hex2;
 		ebcdic = '.'; // Quite the brute force method here
 		switch(hexbyte) {
-        case '00': ebcdic = '<NUL>'; break;
-        case '01': ebcdic = '<SOH>'; break;
-        case '02': ebcdic = '<STX>'; break;
-        case '03': ebcdic = '<ETX>'; break;
-        case '04': ebcdic = '<SEL>'; break;
-        case '05': ebcdic = '<HT>' ; break;
-        case '06': ebcdic = '<RNL>'; break;
-        case '07': ebcdic = '<DEL>'; break;
-        case '08': ebcdic = '<GE>' ; break;
-        case '09': ebcdic = '<SPS>'; break;
-        case '0A': ebcdic = '<RPT>'; break;
-        case '0B': ebcdic = '<VT>' ; break;
-        case '0C': ebcdic = '<FF>' ; break;
-        case '0D': ebcdic = '<CR>' ; break;
-        case '0E': ebcdic = '<SO>' ; break;
-        case '0F': ebcdic = '<SI>' ; break;
-        case '10': ebcdic = '<DLE>'; break;
-        case '11': ebcdic = '<DC1>'; break;
-        case '12': ebcdic = '<DC2>'; break;
-        case '13': ebcdic = '<DC3>'; break;
+        case '00': ebcdic = "<a class='<NUL>'>&#729</a>"; break;
+        case '01': ebcdic = "<a class='<SOH>'>&#729</a>"; break;
+        case '02': ebcdic = "<a class='<STX>'>&#729</a>"; break;
+        case '03': ebcdic = "<a class='<ETX>'>&#729</a>"; break;
+        case '04': ebcdic = "<a class='<SEL>'>&#729</a>"; break;
+        case '05': ebcdic = "<a class='<HT>'>&#729</a>" ; break;
+        case '06': ebcdic = "<a class='<RNL>'>&#729</a>"; break;
+        case '07': ebcdic = "<a class='<DEL>'>&#729</a>"; break;
+        case '08': ebcdic = "<a class='<GE>'>&#729</a>" ; break;
+        case '09': ebcdic = "<a class='<SPS>'>&#729</a>"; break;
+        case '0A': ebcdic = "<a class='<RPT>'>&#729</a>"; break;
+        case '0B': ebcdic = "<a class='<VT>'>&#729</a>" ; break;
+        case '0C': ebcdic = "<a class='<FF>'>&#729</a>" ; break;
+        case '0D': ebcdic = "<a class='<CR>'>&#729</a>" ; break;
+        case '0E': ebcdic = "<a class='<SO>'>&#729</a>" ; break;
+        case '0F': ebcdic = "<a class='<SI>'>&#729</a>" ; break;
+        case '10': ebcdic = "<a class='<DLE>'>&#729</a>"; break;
+        case '11': ebcdic = "<a class='<DC1>'>&#729</a>"; break;
+        case '12': ebcdic = "<a class='<DC2>'>&#729</a>"; break;
+        case '13': ebcdic = "<a class='<DC3>'>&#729</a>"; break;
         case '14': ebcdic = '<RES/ENP>'; break;
-        case '15': ebcdic = '<NL>' ; break;
-        case '16': ebcdic = '<BS>' ; break;
-        case '17': ebcdic = '<POC>'; break;
-        case '18': ebcdic = '<CAN>'; break;
-        case '19': ebcdic = '<EM>' ; break;
-        case '1A': ebcdic = '<UBS>'; break;
-        case '1B': ebcdic = '<CU1>'; break;
-        case '1C': ebcdic = '<IFS>'; break;
-        case '1D': ebcdic = '<IGS>' ; break;
-        case '1E': ebcdic = '<IRS>'; break;
+        case '15': ebcdic = "<a class='<NL>'>&#729</a>" ; break;
+        case '16': ebcdic = "<a class='<BS>'>&#729</a>" ; break;
+        case '17': ebcdic = "<a class='<POC>'>&#729</a>"; break;
+        case '18': ebcdic = "<a class='<CAN>'>&#729</a>"; break;
+        case '19': ebcdic = "<a class='<EM>'>&#729</a>" ; break;
+        case '1A': ebcdic = "<a class='<UBS>'>&#729</a>"; break;
+        case '1B': ebcdic = "<a class='<CU1>'>&#729</a>"; break;
+        case '1C': ebcdic = "<a class='<IFS>'>&#729</a>"; break;
+        case '1D': ebcdic = "<a class='<IGS>'>&#729</a>" ; break;
+        case '1E': ebcdic = "<a class='<IRS>'>&#729</a>"; break;
         case '1F': ebcdic = '<ITB/IUS>'; break;
-        case '20': ebcdic = '<DS>' ; break;
-        case '21': ebcdic = '<SOS>'; break;
-        case '22': ebcdic = '<FS>' ; break;
-        case '23': ebcdic = '<WUS>'; break;
+        case '20': ebcdic = "<a class='<DS>'>&#729</a>" ; break;
+        case '21': ebcdic = "<a class='<SOS>'>&#729</a>"; break;
+        case '22': ebcdic = "<a class='<FS>'>&#729</a>" ; break;
+        case '23': ebcdic = "<a class='<WUS>'>&#729</a>"; break;
         case '24': ebcdic = '<BYP/INP>'; break;
-        case '25': ebcdic = '<LF>' ; break;
-        case '26': ebcdic = '<ETB>'; break;
-        case '27': ebcdic = '<ESC>'; break;
-        case '28': ebcdic = '<SA>' ; break;
-        case '29': ebcdic = '<SFE>'; break;
+        case '25': ebcdic = "<a class='<LF>'>&#729</a>" ; break;
+        case '26': ebcdic = "<a class='<ETB>'>&#729</a>"; break;
+        case '27': ebcdic = "<a class='<ESC>'>&#729</a>"; break;
+        case '28': ebcdic = "<a class='<SA>'>&#729</a>" ; break;
+        case '29': ebcdic = "<a class='<SFE>'>&#729</a>"; break;
         case '2A': ebcdic = '<SM/SW>'; break;
-        case '2B': ebcdic = '<CSP>'; break;
-        case '2C': ebcdic = '<MFA>'; break;
-        case '2D': ebcdic = '<ENQ>'; break;
-        case '2E': ebcdic = '<ACK>'; break;
-        case '2F': ebcdic = '<BEL>'; break;
+        case '2B': ebcdic = "<a class='<CSP>'>&#729</a>"; break;
+        case '2C': ebcdic = "<a class='<MFA>'>&#729</a>"; break;
+        case '2D': ebcdic = "<a class='<ENQ>'>&#729</a>"; break;
+        case '2E': ebcdic = "<a class='<ACK>'>&#729</a>"; break;
+        case '2F': ebcdic = "<a class='<BEL>'>&#729</a>"; break;
         case '30': break;
         case '31': break;
-        case '32': ebcdic = '<SYN>'; break;
-        case '33': ebcdic = '<IR>' ; break;
-        case '34': ebcdic = '<PP>' ; break;
-        case '35': ebcdic = '<TRN>'; break;
-        case '36': ebcdic = '<NBS>'; break;
-        case '37': ebcdic = '<EOT>'; break;
-        case '38': ebcdic = '<SBS>'; break;
-        case '39': ebcdic = '<IT>' ; break;
-        case '3A': ebcdic = '<RFF>'; break;
-        case '3B': ebcdic = '<CU3>'; break;
-        case '3C': ebcdic = '<DC4>'; break;
-        case '3D': ebcdic = '<NAK>'; break;
+        case '32': ebcdic = "<a class='<SYN>'>&#729</a>"; break;
+        case '33': ebcdic = "<a class='<IR>'>&#729</a>" ; break;
+        case '34': ebcdic = "<a class='<PP>'>&#729</a>" ; break;
+        case '35': ebcdic = "<a class='<TRN>'>&#729</a>"; break;
+        case '36': ebcdic = "<a class='<NBS>'>&#729</a>"; break;
+        case '37': ebcdic = "<a class='<EOT>'>&#729</a>"; break;
+        case '38': ebcdic = "<a class='<SBS>'>&#729</a>"; break;
+        case '39': ebcdic = "<a class='<IT>'>&#729</a>" ; break;
+        case '3A': ebcdic = "<a class='<RFF>'>&#729</a>"; break;
+        case '3B': ebcdic = "<a class='<CU3>'>&#729</a>"; break;
+        case '3C': ebcdic = "<a class='<DC4>'>&#729</a>"; break;
+        case '3D': ebcdic = "<a class='<NAK>'>&#729</a>"; break;
         case '3E': break;
-        case '3F': ebcdic = '<SUB>'; break;
+        case '3F': ebcdic = "<a class='<SUB>'>&#729</a>"; break;
         case '40': ebcdic = ' ' ; break;
-        case '41': ebcdic = '<RSP>'; break;
+        case '41': ebcdic = "<a class='<RSP>'>&#729</a>"; break;
         case '42': break;
         case '43': break;
         case '44': break;
@@ -384,7 +387,7 @@ function reallyGrossFunctionFromOnline(dform, numBytes){
 		}
 	}
 	output+=ebcdic;
-	if(x%numBytes == 0) output+= "</p><p>";
+	if(x%numBytes == 0 && x>0) output+= "</p><p>";
 }
 return output;
 }

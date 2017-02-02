@@ -122,10 +122,10 @@ function reallyGrossFunctionFromOnline(dform, numBytes){
   for (x = 0; x < raw.length; x+=2){
     var hex1 = raw.substring(x, x+1);
     var hex2 = raw.substring(x+1, x+2);
+	var ebcdic = '.'; // Quite the brute force method here
     if ((hex1 >= 'a') && (hex1 <= 'f')){ hex1 = hex1.toUpperCase(); }
     if (((hex1 >= 'A' && hex1 <= 'F') || (hex1 >= '0' && hex1 <='9')) && ((hex2 >= 'A' && hex2 <= 'F') || (hex2 >= '0' && hex2 <='9'))) { 
-		var hexbyte = hex1 + hex2;
-		ebcdic = '.'; // Quite the brute force method here
+        var hexbyte = hex1 + hex2;
 		switch(hexbyte) {
         case '00': ebcdic = "<a class='<NUL>'>&#729</a>"; break;
         case '01': ebcdic = "<a class='<SOH>'>&#729</a>"; break;

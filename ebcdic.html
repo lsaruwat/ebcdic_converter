@@ -118,7 +118,7 @@ function convertInput(e){
 function reallyGrossFunctionFromOnline(dform, numBytes){
   var x = 0;
   var raw = dform;
-  output = "<p>";
+  var output = "<p>";
   for (x = 0; x < raw.length; x+=2){
     var hex1 = raw.substring(x, x+1);
     var hex2 = raw.substring(x+1, x+2);
